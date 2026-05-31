@@ -1,18 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>My PDF Downloads</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Ed I Year Notes</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>Welcome</h1>
+    <div class="container">
+        <h1>B.Ed I Year Notes Download</h1>
 
-<p>Download PDF:</p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
 
-<a href="childhood_&_growing_up.pdf">
-Download Notes
-</a>
+                <tbody>
+                    <tr>
+                        <td>Childhood & Growing Up</td>
+                        <td>
+                            <a href="childhood_&_growing_up.pdf"
+                               class="download-btn"
+                               download>
+                                Download PDF
+                            </a>
+                        </td>
+                    </tr>
 
+                    <tr>
+                        <td>Contemporary India & Education</td>
+                        <td>
+                            <a href="contemporary_india_&_education.pdf"
+                               class="download-btn"
+                               download>
+                                Download PDF
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+      
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
