@@ -1,13 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* Subject Counter */
+
     const cards = document.querySelectorAll(".note-card");
 
     document.getElementById("subjectCount").textContent =
         `Total Subjects: ${cards.length}`;
 
+    /* Dark Mode */
+
     const toggle = document.getElementById("themeToggle");
 
-    if(localStorage.getItem("darkMode") === "true"){
+    if (localStorage.getItem("darkMode") === "true") {
         document.body.classList.add("dark");
         toggle.textContent = "☀️ Light Mode";
     }
@@ -23,26 +27,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
         toggle.textContent =
             dark
-            ? "☀️ Light Mode"
-            : "🌙 Dark Mode";
+                ? "☀️ Light Mode"
+                : "🌙 Dark Mode";
 
     });
 
-    document
-        .querySelectorAll(".download-btn")
-        .forEach(btn => {
-
-            btn.addEventListener("click", () => {
-                showToast("✓ Download started");
-            });
-
-        });
-
 });
 
-/* Share Link */
 
-function shareFile(file){
+/* Preview PDF */
+
+function previewPDF(file) {
+
+    window.open(file, "_blank");
+
+}
+
+
+/* Download PDF */
+
+function downloadPDF(file) {
+
+    const a = document.createElement("a");
+
+    a.href = file;
+    a.download = "";
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    a.remove();
+
+    showToast("✓ Download started");
+
+}
+
+
+/* Share PDF Link */
+
+function shareFile(file) {
 
     const url =
         window.location.origin +
@@ -58,9 +82,10 @@ function shareFile(file){
 
 }
 
-/* Toast */
 
-function showToast(message){
+/* Toast Notification */
+
+function showToast(message) {
 
     const toast =
         document.getElementById("toast");
@@ -70,12 +95,15 @@ function showToast(message){
     toast.classList.add("show");
 
     setTimeout(() => {
+
         toast.classList.remove("show");
+
     }, 2500);
 
 }
 
-/* Scroll Button */
+
+/* Scroll To Top Button */
 
 const topBtn =
     document.getElementById("topBtn");
@@ -84,67 +112,71 @@ window.addEventListener("scroll", () => {
 
     topBtn.style.display =
         window.scrollY > 200
-        ? "block"
-        : "none";
+            ? "block"
+            : "none";
 
 });
 
 topBtn.addEventListener("click", () => {
 
     window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
     });
 
 });
+
 
 /* Disable Right Click */
 
 document.addEventListener(
     "contextmenu",
-    function(e){
+    function (e) {
         e.preventDefault();
     }
 );
+
 
 /* Disable Dragging */
 
 document.addEventListener(
     "dragstart",
-    function(e){
+    function (e) {
         e.preventDefault();
     }
 );
 
-/* Disable Selection */
+
+/* Disable Text Selection */
 
 document.addEventListener(
     "selectstart",
-    function(e){
+    function (e) {
         e.preventDefault();
     }
 );
 
-/* Optional Shortcuts */
+
+/* Disable Common Developer Shortcuts */
 
 document.addEventListener(
     "keydown",
-    function(e){
+    function (e) {
 
-        if(
+        if (
             e.key === "F12" ||
 
             (e.ctrlKey &&
-             e.shiftKey &&
-             e.key === "I") ||
+                e.shiftKey &&
+                e.key === "I") ||
 
             (e.ctrlKey &&
-             e.shiftKey &&
-             e.key === "J") ||
+                e.shiftKey &&
+                e.key === "J") ||
 
             (e.ctrlKey &&
-             e.key === "U")
-        ){
+                e.key === "U")
+        ) {
             e.preventDefault();
         }
 
