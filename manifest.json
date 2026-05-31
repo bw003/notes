@@ -1,9 +1,8 @@
 {
-  "name": "B.Ed. Notes",
-  "short_name": "Notes",
+  "name": "B.Ed Notes",
+  "short_name": "B.Ed Notes",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#6a11cb",
-  "theme_color": "#6a11cb",
-  "icons": []
+  "theme_color": "#6a11cb"
 }
