@@ -236,30 +236,3 @@ document
     );
 
 });
-
-/*Sticky header*/
-const stickyHeader =
-document.getElementById(
-    "stickyHeader"
-);
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if(window.scrollY > 10){
-
-            stickyHeader.classList.add(
-                "compact"
-            );
-
-        }else{
-
-            stickyHeader.classList.remove(
-                "compact"
-            );
-
-        }
-
-    }
-);
