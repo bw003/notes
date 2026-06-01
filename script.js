@@ -32,8 +32,6 @@ toggle.addEventListener("click", () => {
 
 });
 
-updateCardFocus();
-
 });
 
 /* Preview PDF */
@@ -122,73 +120,6 @@ window.scrollTo({
 });
 
 });
-
-/* Stack + Zoom + Glow Effect */
-
-function updateCardFocus(){
-
-const cards =
-    document.querySelectorAll(".note-card");
-
-const center =
-    window.innerHeight / 2;
-
-cards.forEach(card => {
-
-    const rect =
-        card.getBoundingClientRect();
-
-    const cardCenter =
-        rect.top + rect.height / 2;
-
-    const distance =
-        Math.abs(center - cardCenter);
-
-    const scale =
-        Math.max(
-            0.75,
-            1.15 - distance / 800
-        );
-
-    const opacity =
-        Math.max(
-            0.45,
-            1 - distance / 600
-        );
-
-    const blur =
-        Math.max(
-            0,
-            25 - distance / 10
-        );
-
-    card.style.transform =
-        `scale(${scale})`;
-
-    card.style.opacity =
-        opacity;
-
-    card.style.boxShadow =
-        `0 0 ${blur}px rgba(255,255,255,.25)`;
-
-});
-
-}
-
-window.addEventListener(
-"scroll",
-updateCardFocus
-);
-
-window.addEventListener(
-"resize",
-updateCardFocus
-);
-
-window.addEventListener(
-"load",
-updateCardFocus
-);
 
 /* Disable Right Click */
 
