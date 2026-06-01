@@ -240,45 +240,26 @@ document
 /*Sticky header*/
 const stickyHeader =
 document.getElementById(
-"stickyHeader"
-);
-
-const themeToggle =
-document.getElementById(
-"themeToggle"
+    "stickyHeader"
 );
 
 window.addEventListener(
-"scroll",
-() => {
+    "scroll",
+    () => {
 
-    const dark =
-        document.body.classList.contains(
-            "dark"
-        );
+        if(window.scrollY > 10){
 
-    if(window.scrollY > 80){
+            stickyHeader.classList.add(
+                "compact"
+            );
 
-        stickyHeader.classList.add(
-            "compact"
-        );
+        }else{
 
-        themeToggle.textContent =
-            dark ? "☀️" : "🌙";
+            stickyHeader.classList.remove(
+                "compact"
+            );
 
-    }else{
-
-        stickyHeader.classList.remove(
-            "compact"
-        );
-
-        themeToggle.textContent =
-            dark
-            ? "☀️ Light Mode"
-            : "🌙 Dark Mode";
+        }
 
     }
-
-}
-
 );
