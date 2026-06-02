@@ -224,9 +224,9 @@ max-height:0;
 overflow:hidden;
 
 transition:
-opacity .3s ease,
-transform .3s ease,
-max-height .3s ease;
+opacity .35s ease,
+transform .35s ease,
+max-height .45s ease;
 
 }
 
