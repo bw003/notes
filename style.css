@@ -188,10 +188,9 @@ padding-bottom:24px;
 }
 
 .note-card:hover{
-transform:translateY(-6px);
 
 box-shadow:
-    0 10px 30px rgba(0,0,0,.25);
+0 10px 30px rgba(0,0,0,.25);
 
 background:rgba(255,255,255,.18);
 
@@ -211,32 +210,29 @@ display:flex;
 flex-wrap:wrap;
 gap:10px;
 
+max-height:0;
+
 opacity:0;
 
-transform:
-translateY(-8px);
+overflow:hidden;
 
 pointer-events:none;
 
 transition:
-opacity .25s ease,
-transform .25s ease;
-
-display:none;
+max-height .25s ease-out,
+opacity .2s ease-out;
 
 }
 
 .note-card.active .actions{
 
-display:flex;
+max-height:150px;
 
 opacity:1;
 
-transform:translateY(0);
+margin-top:12px;
 
 pointer-events:auto;
-
-margin-top:15px;
 
 }
 
