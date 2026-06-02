@@ -177,10 +177,13 @@ border-radius:16px;
 padding:20px;
 
 transition:
-transform .25s ease,
-box-shadow .25s ease,
-background .25s ease,
-padding .3s ease;
+all .3s ease;
+
+}
+
+.note-card.active{
+
+padding-bottom:24px;
 
 }
 
@@ -214,32 +217,32 @@ display:flex;
 flex-wrap:wrap;
 gap:10px;
 
-max-height:0;
-
-overflow:hidden;
-
 opacity:0;
 
-transform:translateY(-10px);
+transform:
+translateY(-8px);
+
+pointer-events:none;
 
 transition:
-max-height .4s ease,
-opacity .3s ease,
-transform .3s ease;
+opacity .25s ease,
+transform .25s ease;
+
+display:none;
 
 }
 
 .note-card.active .actions{
 
-max-height:200px;
+display:flex;
 
 opacity:1;
 
 transform:translateY(0);
 
-margin-top:10px;
+pointer-events:auto;
 
-padding-top:6px;
+margin-top:15px;
 
 }
 
