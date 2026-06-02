@@ -167,6 +167,7 @@ padding:10px 0;
 }
 
 .note-card{
+
 background:rgba(255,255,255,.12);
 
 border:1px solid rgba(255,255,255,.15);
@@ -176,9 +177,10 @@ border-radius:16px;
 padding:20px;
 
 transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
+transform .25s ease,
+box-shadow .25s ease,
+background .25s ease,
+padding .3s ease;
 
 }
 
@@ -212,9 +214,12 @@ overflow:hidden;
 
 opacity:0;
 
+transform:translateY(-10px);
+
 transition:
-max-height .35s ease,
-opacity .25s ease;
+max-height .4s ease,
+opacity .3s ease,
+transform .3s ease;
 
 }
 
@@ -223,6 +228,8 @@ opacity .25s ease;
 max-height:150px;
 
 opacity:1;
+
+transform:translateY(0);
 
 margin-top:10px;
 
