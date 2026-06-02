@@ -175,7 +175,8 @@ function (e) {
 
 );
 
-/*Collapsible cards*/
+/* Collapsible cards */
+
 function toggleCard(card){
 
     const allCards =
