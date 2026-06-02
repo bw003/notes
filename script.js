@@ -174,7 +174,13 @@ function (e) {
 }
 
 /*Collapsible cards*/
-function toggleCard(card){
+function toggleCard(card, event){
+
+    if(
+        event.target.closest("button")
+    ){
+        return;
+    }
 
     const allCards =
         document.querySelectorAll(
@@ -211,18 +217,11 @@ function toggleCard(card){
             ".arrow"
         );
 
-    if(card.classList.contains(
-        "active"
-    )){
-
-        arrow.textContent = "▲";
-
-    }else{
-
-        arrow.textContent = "▼";
-
-    }
+    arrow.textContent =
+        card.classList.contains(
+            "active"
+        )
+        ? "▲"
+        : "▼";
 
 }
-
-);
