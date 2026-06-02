@@ -224,7 +224,9 @@ max-height:150px;
 
 opacity:1;
 
-margin-top:15px;
+margin-top:10px;
+
+padding-top:6px;
 
 }
 
@@ -278,7 +280,14 @@ transition:.3s;
 
 .actions a:hover,
 .actions button:hover{
-transform:translateY(-2px);
+
+transform:
+translateY(-2px)
+scale(1.02);
+
+box-shadow:
+0 6px 15px rgba(0,0,0,.2);
+
 }
 
 .preview-btn{
