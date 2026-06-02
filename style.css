@@ -201,9 +201,52 @@ font-size:20px;
 /* Buttons */
 
 .actions{
+
 display:flex;
 flex-wrap:wrap;
 gap:10px;
+
+max-height:0;
+
+overflow:hidden;
+
+opacity:0;
+
+transition:
+max-height .35s ease,
+opacity .25s ease;
+
+}
+
+.note-card.active .actions{
+
+max-height:150px;
+
+opacity:1;
+
+margin-top:15px;
+
+}
+
+.note-card h2{
+
+display:flex;
+align-items:center;
+
+gap:10px;
+
+cursor:pointer;
+
+margin-bottom:0;
+
+}
+
+.arrow{
+
+font-size:14px;
+
+transition:.3s;
+
 }
 
 .actions a,
