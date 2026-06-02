@@ -184,6 +184,12 @@ padding .3s ease;
 
 }
 
+.note-card.active{
+
+padding-bottom:24px;
+
+}
+
 .note-card:hover{
 transform:translateY(-6px);
 
@@ -225,7 +231,7 @@ transform .3s ease;
 
 .note-card.active .actions{
 
-max-height:150px;
+max-height:200px;
 
 opacity:1;
 
