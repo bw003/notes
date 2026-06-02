@@ -173,4 +173,56 @@ function (e) {
 
 }
 
+/*Collapsible cards*/
+function toggleCard(card){
+
+    const allCards =
+        document.querySelectorAll(
+            ".note-card"
+        );
+
+    allCards.forEach(c => {
+
+        if(c !== card){
+
+            c.classList.remove(
+                "active"
+            );
+
+            const arrow =
+                c.querySelector(
+                    ".arrow"
+                );
+
+            if(arrow){
+                arrow.textContent = "▼";
+            }
+
+        }
+
+    });
+
+    card.classList.toggle(
+        "active"
+    );
+
+    const arrow =
+        card.querySelector(
+            ".arrow"
+        );
+
+    if(card.classList.contains(
+        "active"
+    )){
+
+        arrow.textContent = "▲";
+
+    }else{
+
+        arrow.textContent = "▼";
+
+    }
+
+}
+
 );
