@@ -221,3 +221,19 @@ function toggleCard(card){
         : "▼";
 
 }
+
+/* Splash Screen */
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(() => {
+
+            document
+                .getElementById("splash")
+                .classList.add("hide");
+
+        }, 1200);
+
+    }
+);
