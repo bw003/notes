@@ -515,21 +515,23 @@ background:rgba(255,255,255,.18);
 
 color:white;
 
-margin-bottom:18px;
-
 font-size:20px;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+cursor:pointer;
+
+margin-bottom:0;
 
 }
 
-
-
 /* Buttons */
 
-
-
 .actions{
-
-
 
 display:flex;
 
@@ -537,87 +539,35 @@ flex-wrap:wrap;
 
 gap:10px;
 
+overflow:hidden;
 
+max-height:0;
 
 opacity:0;
 
-
-
-transform:
-
-translateY(-8px);
-
-
+transform:translateY(-8px);
 
 pointer-events:none;
 
-
-
 transition:
-
+max-height .3s ease,
 opacity .25s ease,
-
-transform .25s ease;
-
-
-
-display:none;
-
-
+transform .25s ease,
+margin-top .25s ease;
 
 }
-
-
 
 .note-card.active .actions{
 
-
-
-display:flex;
-
-
+max-height:200px;
 
 opacity:1;
 
-
-
 transform:translateY(0);
-
-
 
 pointer-events:auto;
 
-
-
 margin-top:15px;
-
-
-
-}
-
-
-
-.note-card h2{
-
-
-
-display:flex;
-
-align-items:center;
-
-
-
-gap:10px;
-
-
-
-cursor:pointer;
-
-
-
-margin-bottom:0;
-
-
 
 }
 
@@ -861,6 +811,16 @@ display:none;
 
 
 
+background:rgba(255,255,255,.25);
+
+color:white;
+
+backdrop-filter:blur(8px);
+
+-webkit-backdrop-filter:blur(8px);
+
+
+
 box-shadow:
 
     0 4px 15px rgba(0,0,0,.3);
@@ -877,7 +837,9 @@ box-shadow:
 
 .dark{
 
-background:#121212;
+background:#121212 !important;
+
+animation:none !important;
 
 }
 
