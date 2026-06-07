@@ -543,6 +543,8 @@ overflow:hidden;
 
 max-height:0;
 
+padding:4px 4px 4px 4px;
+
 opacity:0;
 
 transform:translateY(-8px);
@@ -559,7 +561,7 @@ margin-top .25s ease;
 
 .note-card.active .actions{
 
-max-height:200px;
+max-height:220px;
 
 opacity:1;
 
