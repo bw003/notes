@@ -122,6 +122,7 @@ border: 1px solid rgba(255,255,255,.25);
 border-radius: 20px;
 padding: 30px;
 box-shadow: 0 8px 32px rgba(0,0,0,.25);
+align-self: flex-start;
 }
 
 /* Top Bar */
@@ -172,15 +173,11 @@ padding: 10px 0;
 .note-card {
 background: rgba(255,255,255,.12);
 border: 1px solid rgba(255,255,255,.15);
-border-radius: 16px;
-padding: 20px;
-padding-left: 24px;
-transition: all .3s ease;
-position: relative;
-outline: none;
-
-/* Colored left border accent */
 border-left: 4px solid transparent;
+border-radius: 16px;
+padding: 20px 20px 20px 24px;
+transition: all .3s ease;
+outline: none;
 }
 
 /* Card accent colors */
@@ -206,35 +203,6 @@ box-shadow: 0 10px 30px rgba(0,0,0,.25);
 background: rgba(255,255,255,.18);
 }
 
-/* Glassmorphism shimmer on hover */
-.note-card::before {
-content: '';
-position: absolute;
-top: 0;
-left: -75%;
-width: 50%;
-height: 100%;
-background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(255,255,255,.15) 50%,
-    transparent 100%
-);
-border-radius: 16px;
-transform: skewX(-20deg);
-transition: none;
-pointer-events: none;
-}
-
-.note-card:hover::before {
-animation: shimmer .6s ease forwards;
-}
-
-@keyframes shimmer {
-0%   { left: -75%; }
-100% { left: 125%; }
-}
-
 .note-card h2 {
 color: white;
 font-size: 20px;
@@ -245,31 +213,27 @@ cursor: pointer;
 margin-bottom: 0;
 }
 
-/* Buttons */
+/* Actions wrapper for smooth animation without clipping */
+
+.actions-wrapper {
+display: grid;
+grid-template-rows: 0fr;
+transition:
+    grid-template-rows .3s ease,
+    margin-top .3s ease;
+}
+
+.note-card.active .actions-wrapper {
+grid-template-rows: 1fr;
+margin-top: 15px;
+}
 
 .actions {
 display: flex;
 flex-wrap: wrap;
 gap: 10px;
 overflow: hidden;
-max-height: 0;
-padding: 4px 4px 4px 4px;
-opacity: 0;
-transform: translateY(-8px);
-pointer-events: none;
-transition:
-    max-height .3s ease,
-    opacity .25s ease,
-    transform .25s ease,
-    margin-top .25s ease;
-}
-
-.note-card.active .actions {
-max-height: 220px;
-opacity: 1;
-transform: translateY(0);
-pointer-events: auto;
-margin-top: 15px;
+padding: 4px;
 }
 
 .arrow {
@@ -277,13 +241,10 @@ font-size: 14px;
 transition: .3s;
 }
 
-.actions a,
 .actions button {
 position: relative;
-overflow: hidden;
 border: none;
 outline: none;
-text-decoration: none;
 padding: 11px 16px;
 border-radius: 10px;
 color: white;
@@ -293,7 +254,6 @@ cursor: pointer;
 transition: .3s;
 }
 
-.actions a:hover,
 .actions button:hover {
 transform: translateY(-2px) scale(1.02);
 box-shadow: 0 6px 15px rgba(0,0,0,.2);
@@ -401,9 +361,10 @@ color: white;
 
     .notes-grid { gap: 20px; }
 
-    .actions { flex-direction: column; }
+    .actions {
+        flex-direction: column;
+    }
 
-    .actions a,
     .actions button {
         width: 100%;
         text-align: center;

@@ -6,8 +6,7 @@ const cards = document.querySelectorAll(".note-card");
 const total = cards.length;
 const countEl = document.getElementById("subjectCount");
 let count = 0;
-const duration = 1000;
-const stepTime = Math.floor(duration / total);
+const stepTime = Math.floor(1000 / total);
 
 const counter = setInterval(() => {
     count++;
@@ -96,10 +95,9 @@ function downloadPDF(file) {
     showToast("✓ Download started");
 }
 
-/* Share PDF Link — shows the URL in toast */
+/* Share PDF Link */
 
 async function shareFile(file, label) {
-
     const base = window.location.origin +
         window.location.pathname.replace("index.html", "");
     const url = base + file;
@@ -110,13 +108,11 @@ async function shareFile(file, label) {
     } catch {
         showToast("⚠️ Copy failed — share manually");
     }
-
 }
 
 /* Toast Notification */
 
 function showToast(message, url) {
-
     const toast = document.getElementById("toast");
 
     if (url) {
@@ -127,34 +123,24 @@ function showToast(message, url) {
     }
 
     toast.classList.add("show");
-
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 3000);
-
+    setTimeout(() => toast.classList.remove("show"), 3000);
 }
 
 /* Disable Right Click */
-
-document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-});
+document.addEventListener("contextmenu", e => e.preventDefault());
 
 /* Disable Dragging */
-
-document.addEventListener("dragstart", function (e) {
-    e.preventDefault();
-});
+document.addEventListener("dragstart", e => e.preventDefault());
 
 /* Disable Text Selection */
+document.addEventListener("selectstart", e => e.preventDefault());
 
-document.addEventListener("selectstart", function (e) {
-    e.preventDefault();
-});
-
-/* Disable Common Developer Shortcuts */
-
+/* Disable Developer Shortcuts — skip navigation keys */
 document.addEventListener("keydown", function (e) {
+
+    /* Let arrow keys and escape through for keyboard nav */
+    if (["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Escape", " "].includes(e.key)) return;
+
     if (
         e.key === "F12" ||
         (e.ctrlKey && e.shiftKey && e.key === "I") ||
@@ -163,12 +149,12 @@ document.addEventListener("keydown", function (e) {
     ) {
         e.preventDefault();
     }
+
 });
 
 /* Collapsible Cards */
 
 function toggleCard(card) {
-
     const allCards = document.querySelectorAll(".note-card");
 
     allCards.forEach(c => {
@@ -183,7 +169,6 @@ function toggleCard(card) {
 
     const arrow = card.querySelector(".arrow");
     arrow.textContent = card.classList.contains("active") ? "▲" : "▼";
-
 }
 
 /* Splash Screen */
