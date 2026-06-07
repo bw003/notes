@@ -539,7 +539,7 @@ overflow:hidden;
 
 max-height:0;
 
-padding:4px 4px 4px 4px;
+padding:0 4px;
 
 opacity:0;
 
@@ -566,6 +566,8 @@ transform:translateY(0);
 pointer-events:auto;
 
 margin-top:15px;
+
+padding:4px;
 
 }
 
