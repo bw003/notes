@@ -1,3 +1,20 @@
+/* Enter App */
+
+function enterApp() {
+
+    const home = document.getElementById("homeScreen");
+    const notes = document.getElementById("notesSection");
+
+    home.classList.add("hide-home");
+
+    setTimeout(() => {
+        home.style.display = "none";
+        notes.classList.remove("hidden");
+        notes.classList.add("notes-visible");
+    }, 400);
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
 /* Subject Counter */

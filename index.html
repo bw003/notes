@@ -35,6 +35,17 @@
         <button id="themeToggle">🌙 Dark Mode</button>
     </div>
 
+    <!-- Home Screen -->
+    <div id="homeScreen">
+        <div class="home-icon">📚</div>
+        <h1>B.Ed. I Year Notes</h1>
+        <p class="home-subtitle">Your complete study companion</p>
+        <button id="enterBtn" onclick="enterApp()">Enter →</button>
+    </div>
+
+    <!-- Notes Section (hidden until Enter is clicked) -->
+    <div id="notesSection" class="hidden">
+
     <h1>📚 B.Ed. I Year Notes</h1>
 
     <p id="subjectCount"></p>
@@ -218,9 +229,11 @@
                  </div>
             </div>
 
-    </div>
+    </div><!-- end notes-grid -->
 
-</div>
+    </div><!-- end notesSection -->
+
+</div><!-- end container -->
 
 <button id="topBtn">↑</button>
 
